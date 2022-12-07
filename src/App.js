@@ -2,13 +2,12 @@ import React,{Component} from "react";
 import { useEffect, useState } from "react";
 import Movie from "./component/Movie/Movie";
 import style from "./App.css";
-import {BrowserRouter,Routes, Route, Link} from "react-router-dom";
+import SeeDetails from "./component/SeeDetails/SeeDetails";
 
 function App() {
 
    
   const [movies, setMovies] = useState([]);
-  const [ativar,setAtivar] = useState(false)
   useEffect(() => {
     fetch("https://swapi.dev/api/films/")
       .then(response => response.json())
@@ -17,11 +16,11 @@ function App() {
       .catch(erro => console.log(erro))
 
   },[])
-  
+  console.log(movies)
   return (
     <div className="App">
       <ul className="moviesList">
-        <Movie ativar={setAtivar}  movie={movies} />
+        <Movie movie={movies} />
       </ul>
     </div>
   );
