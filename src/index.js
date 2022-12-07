@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import App from './App';
-import Movie from './component/Movie/Movie';
 import NotFound from './component/NotFound/NotFound';
+import SeeDetails from './component/SeeDetails/SeeDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,8 +11,8 @@ root.render(
     <BrowserRouter>
       <Routes >
         <Route path="/" element={<App />} />
-        <Route path=':id' element={<Movie />} />
-        {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path='/:movie/:id' element={<SeeDetails />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
