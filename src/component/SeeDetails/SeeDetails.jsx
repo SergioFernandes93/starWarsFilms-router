@@ -3,26 +3,28 @@ import { useParams } from "react-router-dom";
 import "../SeeDetails/seeDetails.css"
 
 const SeeDetails = () => {
+    
+    const [movie, setMovie] = useState([]);
+
     const params = useParams();
     const {id} = params;
 
-    const [movie, setMovie] = useState([]);
-
     useEffect(() => {
-        
-      fetch(`https://swapi.dev/api/films/${id}`)
-        .then(response => response.json())
-        .then(jsonData => jsonData.results)
-        .then(setMovie)
-        .catch(erro => console.log(erro))
-  
-    },[])
+        fetch(`https://swapi.dev/api/films/${id}`)
+          .then(response => response.json())
+          .then(setMovie)
+          .catch(erro => console.log(erro))
+    
+      },[])
 
+console.log(movie)
+    
     return(
         <div className="detailsContainer">
-                <span>Título:Id={id}  {movie}</span> 
-                <span>Diretor:</span>
-                <span>Sinopse:</span>
+                <span>Título:{movie.title}</span> 
+                <span>Diretor:{movie.director}</span>
+                <span>Data de lançamento:{movie.release_date}</span>
+                <span>Sinopse: {movie.opening_crawl}</span>
         </div>
     )
 }

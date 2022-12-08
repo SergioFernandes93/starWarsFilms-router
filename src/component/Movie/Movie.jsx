@@ -2,9 +2,6 @@ import { Link, useParams } from "react-router-dom";
 
 function Movie(props) {
 
-    // const params = useParams();
-    // const {id} = params;
-    
         return(
             <>
             {props.movie.map((movie,index) => {
