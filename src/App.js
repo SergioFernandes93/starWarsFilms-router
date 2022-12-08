@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { useEffect, useState } from "react";
 import Movie from "./component/Movie/Movie";
-import style from "./App.css";
+import  "./App.css";
 import SeeDetails from "./component/SeeDetails/SeeDetails";
 
 function App() {
