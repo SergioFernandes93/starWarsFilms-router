@@ -10,7 +10,7 @@ const SeeDetails = () => {
     const {id} = params;
 
     useEffect(() => {
-        fetch(`https://swapi.dev/api/films/${id}`)
+        fetch(`https://swapi.dev/api/films/${id + 1}`)
           .then(response => response.json())
           .then(setMovie)
           .catch(erro => console.log(erro))
